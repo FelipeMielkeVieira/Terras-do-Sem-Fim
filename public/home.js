@@ -8,10 +8,14 @@ kaboom({
     font: "sinko",
     width: totalWidth,
     height: totalHeight,
-    background: [255, 255, 255]
+    background: [67, 197, 245]
 });
 
 let bgImage = loadSprite("capa", "/img/capa.jpg");
+
+loadSprite("grama", "https://i.ibb.co/XzwXz89/New-Piskel-5.png");
+loadSprite("porto", "/sprites/porto.png");
+loadSprite("arvore", "/sprites/arvore.png")
 
 scene("inicio", () => {
 
@@ -43,18 +47,18 @@ scene("inicio", () => {
     ])
 
     add([
+        "botaoContinuar",
         pos(totalWidth * 0.425, totalHeight * 0.65),
         color(255, 128, 0),
         rect(totalWidth * 0.15, 40),
-        outline(2)
+        outline(2),
+        area()
     ])
 
     add([
-        "botaoContinuar",
         text("Continuar"),
         pos(totalWidth * 0.45, totalHeight * 0.67),
         scale(2),
-        area()
     ])
 
     onClick("botaoContinuar", () => {
@@ -64,6 +68,84 @@ scene("inicio", () => {
 
 scene("parte1", () => {
 
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    
+
+    add([
+        "porto",
+        sprite("porto"),
+        scale(8),
+        pos(totalWidth * 0.1, totalHeight * 0.9)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9)
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9)
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9)
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9)
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9)
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9)
+    ])
+
+    //Árvore 1
+    add([
+        "arvore",
+        sprite("arvore"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.6)
+    ])
+
+    //Árvore 2
+    add([
+        "arvore",
+        sprite("arvore"),
+        scale(6),
+        pos(totalWidth * 0.75, totalHeight * 0.65)
+    ])
 })
 
 go("inicio");
