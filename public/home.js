@@ -243,19 +243,135 @@ scene("parte1", () => {
     ])
 
     let textAntonio = false;
+    let textJoao = false;
+    let textMargot = false;
+    let textVirgilio = false;
+
     player.onCollide("antonio", () => {
         if(!textAntonio) {
             textAntonio = true;
+            textJoao = false;
+            textMargot = false;
+            textVirgilio = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Antonio Vitor"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+             ])
             add([
                "text",
-               text("Queria uma roca de cacau so minha!"),
-               pos(antonio.pos.x, antonio.pos.y - (totalHeight * 0.05)),
+               text("Queria uma roca de"),
+               pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.09)),
                scale(2),
                layer("3")
             ])
-            setTimeout(() => {
-                textAntonio = false;
-            }, 4000);
+            add([
+                "text",
+                text("cacau so minha!"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+             ])
+        }
+    })
+
+    player.onCollide("joao", () => {
+        if(!textJoao) {
+            textJoao = true;
+            textAntonio = false;
+            textMargot = false;
+            textVirgilio = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Joao Magalhaes"),
+                pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+             ])
+            add([
+               "text",
+               text("Ganhei um bom dinheiro com"),
+               pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.09)),
+               scale(2),
+               layer("3")
+            ])
+            add([
+                "text",
+                text("as cartas desta vez!"),
+                pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+             ])
+        }
+    })
+
+    player.onCollide("margot", () => {
+        if(!textMargot) {
+            textMargot = true;
+            textJoao = false;
+            textAntonio = false;
+            textVirgilio = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Margot"),
+                pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+             ])
+            add([
+               "text",
+               text("Deixei Salvador so para"),
+               pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.09)),
+               scale(2),
+               layer("3")
+            ])
+            add([
+                "text",
+                text("encontrar o advogado!"),
+                pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+             ])
+        }
+    })
+
+    player.onCollide("virgilio", () => {
+        if(!textVirgilio) {
+            textVirgilio = true;
+            textJoao = false;
+            textAntonio = false;
+            textMargot = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Advogado Virgilio"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+             ])
+            add([
+               "text",
+               text("Vou barganhar esses coroneis"),
+               pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.09)),
+               scale(2),
+               layer("3")
+            ])
+            add([
+                "text",
+                text("muito rapido!"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+             ])
         }
     })
 
