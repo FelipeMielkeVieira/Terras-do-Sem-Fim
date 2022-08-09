@@ -248,9 +248,10 @@ scene("parte1", () => {
             textAntonio = true;
             add([
                "text",
-               text("Queria tanto uma roça de cacau minha!"),
-               pos(antonio.pos.width, antonio.pos.height + (totalHeight * 0.2)),
-               scale(2)
+               text("Queria uma roca de cacau so minha!"),
+               pos(antonio.pos.x, antonio.pos.y - (totalHeight * 0.05)),
+               scale(2),
+               layer("3")
             ])
             setTimeout(() => {
                 textAntonio = false;
