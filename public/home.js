@@ -23,6 +23,9 @@ loadSprite("joao", "/sprites/joao.png");
 loadSprite("margot", "/sprites/margot.png");
 loadSprite("virgilio", "/sprites/virgilio.png");
 
+loadSprite("horacio", "/sprites/horacio.png");
+loadSprite("balao", "/sprites/balao.png");
+
 scene("inicio", () => {
 
     add([
@@ -161,7 +164,7 @@ scene("parte1", () => {
         "arvore",
         sprite("arvore"),
         scale(8),
-        pos(totalWidth * 0.6, totalHeight * 0.5),
+        pos(totalWidth * 0.6, totalHeight * 0.6),
     ])
 
     //Árvore 2
@@ -169,7 +172,7 @@ scene("parte1", () => {
         "arvore",
         sprite("arvore"),
         scale(8),
-        pos(totalWidth * 0.75, totalHeight * 0.55)
+        pos(totalWidth * 0.75, totalHeight * 0.65)
     ])
 
     const player = add([
@@ -197,10 +200,14 @@ scene("parte1", () => {
     })
 
     onKeyDown("up", () => {
-        player.jump(100)
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
     })
     onKeyDown("w", () => {
-        player.jump(100)
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
     })
 
     onKeyDown("down", () => {
@@ -213,7 +220,7 @@ scene("parte1", () => {
     const antonio = add([
         "antonio",
         sprite("antonio"),
-        pos(totalWidth * 0.2, totalHeight * 0.7),
+        pos(totalWidth * 0.2, totalHeight * 0.75),
         area(),
         scale(4)
     ])
@@ -221,7 +228,7 @@ scene("parte1", () => {
     const joao = add([
         "joao",
         sprite("joao"),
-        pos(totalWidth * 0.3, totalHeight * 0.7),
+        pos(totalWidth * 0.3, totalHeight * 0.75),
         area(),
         scale(4)
     ])
@@ -229,7 +236,7 @@ scene("parte1", () => {
     const margot = add([
         "margot",
         sprite("margot"),
-        pos(totalWidth * 0.4, totalHeight * 0.7),
+        pos(totalWidth * 0.4, totalHeight * 0.75),
         area(),
         scale(4)
     ])
@@ -237,7 +244,7 @@ scene("parte1", () => {
     const virgilio = add([
         "virgilio",
         sprite("virgilio"),
-        pos(totalWidth * 0.9, totalHeight * 0.7),
+        pos(totalWidth * 0.9, totalHeight * 0.75),
         area(),
         scale(4)
     ])
@@ -248,7 +255,7 @@ scene("parte1", () => {
     let textVirgilio = false;
 
     player.onCollide("antonio", () => {
-        if(!textAntonio) {
+        if (!textAntonio) {
             textAntonio = true;
             textJoao = false;
             textMargot = false;
@@ -261,13 +268,13 @@ scene("parte1", () => {
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
-             ])
+            ])
             add([
-               "text",
-               text("Queria uma roca de"),
-               pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.09)),
-               scale(2),
-               layer("3")
+                "text",
+                text("Queria uma roca de"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
             ])
             add([
                 "text",
@@ -275,12 +282,12 @@ scene("parte1", () => {
                 pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.05)),
                 scale(2),
                 layer("3")
-             ])
+            ])
         }
     })
 
     player.onCollide("joao", () => {
-        if(!textJoao) {
+        if (!textJoao) {
             textJoao = true;
             textAntonio = false;
             textMargot = false;
@@ -293,13 +300,13 @@ scene("parte1", () => {
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
-             ])
+            ])
             add([
-               "text",
-               text("Ganhei um bom dinheiro com"),
-               pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.09)),
-               scale(2),
-               layer("3")
+                "text",
+                text("Ganhei um bom dinheiro com"),
+                pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
             ])
             add([
                 "text",
@@ -307,12 +314,12 @@ scene("parte1", () => {
                 pos(joao.pos.x / 1.5, joao.pos.y - (totalHeight * 0.05)),
                 scale(2),
                 layer("3")
-             ])
+            ])
         }
     })
 
     player.onCollide("margot", () => {
-        if(!textMargot) {
+        if (!textMargot) {
             textMargot = true;
             textJoao = false;
             textAntonio = false;
@@ -325,13 +332,13 @@ scene("parte1", () => {
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
-             ])
+            ])
             add([
-               "text",
-               text("Deixei Salvador so para"),
-               pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.09)),
-               scale(2),
-               layer("3")
+                "text",
+                text("Deixei Salvador so para"),
+                pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
             ])
             add([
                 "text",
@@ -339,12 +346,12 @@ scene("parte1", () => {
                 pos(margot.pos.x / 1.5, margot.pos.y - (totalHeight * 0.05)),
                 scale(2),
                 layer("3")
-             ])
+            ])
         }
     })
 
     player.onCollide("virgilio", () => {
-        if(!textVirgilio) {
+        if (!textVirgilio) {
             textVirgilio = true;
             textJoao = false;
             textAntonio = false;
@@ -357,13 +364,13 @@ scene("parte1", () => {
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
-             ])
+            ])
             add([
-               "text",
-               text("Vou barganhar esses coroneis"),
-               pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.09)),
-               scale(2),
-               layer("3")
+                "text",
+                text("Vou barganhar esses coroneis"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
             ])
             add([
                 "text",
@@ -371,12 +378,12 @@ scene("parte1", () => {
                 pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.05)),
                 scale(2),
                 layer("3")
-             ])
+            ])
         }
     })
 
     onUpdate(() => {
-        if(player.pos.x >= totalWidth) {
+        if (player.pos.x >= totalWidth) {
             go("parte2")
         }
     })
@@ -384,7 +391,428 @@ scene("parte1", () => {
 })
 
 scene("parte2", () => {
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
 
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Árvore 1
+    add([
+        "arvore",
+        sprite("arvore"),
+        scale(8),
+        pos(totalWidth * 0.05, totalHeight * 0.6),
+    ])
+
+    //Árvore 2
+    add([
+        "arvore",
+        sprite("arvore"),
+        scale(8),
+        pos(totalWidth * 0.8, totalHeight * 0.65)
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.1, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+
+    add([
+        "familia",
+        sprite("joao"),
+        pos(totalWidth * 0.2, totalHeight * 0.8),
+        area(),
+        scale(4)
+    ])
+    add([
+        "familia",
+        sprite("joao"),
+        pos(totalWidth * 0.25, totalHeight * 0.82),
+        area(),
+        scale(4)
+    ])
+    add([
+        "familia",
+        sprite("joao"),
+        pos(totalWidth * 0.3, totalHeight * 0.78),
+        area(),
+        scale(4)
+    ])
+    add([
+        "familia",
+        sprite("joao"),
+        pos(totalWidth * 0.35, totalHeight * 0.81),
+        area(),
+        scale(4)
+    ])
+    const antonio = add([
+        "antonio",
+        sprite("antonio"),
+        pos(totalWidth * 0.4, totalHeight * 0.8),
+        area(),
+        scale(4)
+    ])
+
+    const horacio = add([
+        "horacio",
+        sprite("horacio"),
+        scale(4),
+        area(),
+        pos(totalWidth * 0.7, totalHeight * 0.8)
+    ])
+
+    let textAntonio = false;
+    let textHoracio = false;
+
+    player.onCollide("antonio", () => {
+        if (!textAntonio) {
+            textHoracio = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Familia Badaro"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+            ])
+            add([
+                "text",
+                text("Vamos tomar o Sequeiro Grande"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            add([
+                "text",
+                text("nem que seja a forca!"),
+                pos(antonio.pos.x / 1.5, antonio.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+            ])
+        }
+    })
+
+    player.onCollide("horacio", () => {
+        if (!textHoracio) {
+            textHoracio = true;
+            textAntonio = false;
+            destroyAll("text")
+            add([
+                "balao",
+                sprite("balao"),
+                pos(horacio.pos.x, horacio.pos.y - (totalHeight * 0.15)),
+                scale(8),
+                layer("3"),
+                area(),
+                solid()
+            ])
+        }
+    })
 })
 
-go("inicio");
+scene("parte3", () => {
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Árvore 1
+    add([
+        "arvore",
+        sprite("arvore"),
+        scale(8),
+        pos(totalWidth * 0.1, totalHeight * 0.6),
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+
+    const horacio1 = add([
+        "horacio1",
+        sprite("horacio"),
+        pos(totalWidth * 0.1, totalHeight * 0.8),
+        area(),
+        scale(4)
+    ])
+})
+
+go("parte2");
