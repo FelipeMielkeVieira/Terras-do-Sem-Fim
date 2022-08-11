@@ -1,3 +1,5 @@
+const { text } = require("express");
+
 let totalWidth = window.innerWidth * 0.98;
 let totalHeight = window.innerHeight * 0.96;
 
@@ -2380,10 +2382,17 @@ scene("parte6", () => {
 })
 
 scene("familia1", () => {
-    add([
-        "legendaQuadro",
-        rect(totalWidth, totalHeight * 0.2)
-    ])
+    // add([
+    //     "legendaQuadro",
+    //     rect(totalWidth, totalHeight * 0.2),
+    //     pos(0, totalHeight * 0.8),
+    // ])
+
+    // const legenda = add([
+    //     "legenda",
+    //     pos(totalWidth * 0.1, totalHeight * 0.85),
+    //     text("Familia Badaro")
+    // ])
 })
 
-go("parte6");
+go("familia1");
