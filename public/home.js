@@ -1,5 +1,3 @@
-const { text } = require("express");
-
 let totalWidth = window.innerWidth * 0.98;
 let totalHeight = window.innerHeight * 0.96;
 
@@ -48,6 +46,13 @@ loadSprite("fazenda", "/sprites/fazenda.png");
 loadSprite("quadro", "/sprites/quadro.png");
 loadSprite("sinho", "/sprites/sinho.png");
 loadSprite("juca", "/sprites/juca.png");
+loadSprite("ana", "/sprites/ana.png");
+loadSprite("olga", "/sprites/olga.png");
+
+loadSprite("raimunda", "/sprites/raimunda.png");
+loadSprite("cartorio", "/sprites/cartorio.png");
+loadSprite("destrocos", "/sprites/destrocos.png");
+loadSprite("gota", "/sprites/gota.png");
 
 scene("inicio", () => {
 
@@ -1673,6 +1678,13 @@ scene("parte4", () => {
         scale(4)
     ])
 
+    const maneca = add([
+        "maneca",
+        sprite("maneca"),
+        pos(totalWidth * 0.3, totalHeight * 0.8),
+        area()
+    ])
+
     const virgilio = add([
         "virgilio",
         sprite("virgilio"),
@@ -1716,10 +1728,13 @@ scene("parte4", () => {
 
     let textHoracio = false;
     let textVirgilio = false;
+    let textManeca = false;
+
     player.onCollide("horacio", () => {
         if (!textHoracio) {
             textHoracio = true;
             textVirgilio = false;
+            textManeca = false;
             destroyAll("text")
             add([
                 "text",
@@ -1754,6 +1769,7 @@ scene("parte4", () => {
         if (!textVirgilio) {
             textVirgilio = true;
             textHoracio = false;
+            textManeca = false;
             destroyAll("text")
             add([
                 "text",
@@ -1780,6 +1796,41 @@ scene("parte4", () => {
             setTimeout(() => {
                 destroyAll("text");
                 textVirgilio = false;
+            }, 5000);
+        }
+    })
+
+    player.onCollide("maneca", () => {
+        if (!textManeca) {
+            textVirgilio = false;
+            textHoracio = false;
+            textManeca = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("Maneca Dantas"),
+                pos(maneca.pos.x / 1.5, maneca.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+            ])
+            add([
+                "text",
+                text("Sou apenas um compadre"),
+                pos(maneca.pos.x / 1.5, maneca.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            add([
+                "text",
+                text("do Horacio!"),
+                pos(maneca.pos.x / 1.5, maneca.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textManeca = false;
             }, 5000);
         }
     })
@@ -2379,20 +2430,382 @@ scene("parte6", () => {
     onClick("quadro", () => {
         go("familia1")
     })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            go("parte7")
+        }
+    })
 })
 
 scene("familia1", () => {
-    // add([
-    //     "legendaQuadro",
-    //     rect(totalWidth, totalHeight * 0.2),
-    //     pos(0, totalHeight * 0.8),
-    // ])
 
-    // const legenda = add([
-    //     "legenda",
-    //     pos(totalWidth * 0.1, totalHeight * 0.85),
-    //     text("Familia Badaro")
-    // ])
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    add([
+        "legendaQuadro",
+        rect(totalWidth, totalHeight * 0.2),
+        pos(0, totalHeight * 0.8),
+    ])
+
+    const legenda = add([
+        "legenda",
+        pos(totalWidth * 0.1, totalHeight * 0.88),
+        text("Familia Badaro"),
+        scale(2)
+    ])
+
+    const juca = add([
+        "juca",
+        sprite("juca"),
+        scale(4),
+        pos(totalWidth * 0.02, totalHeight * 0.3),
+        area(),
+        layer("1")
+    ])
+
+    const sinho = add([
+        "sinho",
+        sprite("sinho"),
+        scale(4),
+        pos(totalWidth * 0.2, totalHeight * 0.2),
+        area(),
+        layer("1")
+    ])
+
+    const ana = add([
+        "ana",
+        sprite("ana"),
+        scale(4),
+        pos(totalWidth * 0.4, totalHeight * 0.25),
+        area(),
+        layer("1")
+    ])
+
+    const olga = add([
+        "olga",
+        sprite("olga"),
+        scale(4),
+        pos(totalWidth * 0.6, totalHeight * 0.22),
+        area(),
+        layer("1")
+    ])
+
+    onHover("juca", () => {
+        legenda.text = "Juca Badaro, irmao de Sinho. Enquanto seu irmao sempre tentava ser \no mais pacifico possivel, ele resolvia tudo com tiros."
+    })
+
+    onHover("sinho", () => {
+        legenda.text = "Sinho Badaro, irmao de Juca, que sempre optava pela paz"
+    })
+
+    onHover("ana", () => {
+        legenda.text = "Don'Ana, filha de Sinho, era conhecida como uma moca seria e enraizada"
+    })
+
+    onHover("olga", () => {
+        legenda.text = "Olga, esposa de Juca, que raramente era vista na fazenda dos Badaro"
+    })
+
+    onKeyPress("escape", () => {
+        go("parte6")
+    })
 })
 
-go("familia1");
+scene("parte7", () => {
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+
+    let cartorio = add([
+        "cartorio",
+        sprite("cartorio"),
+        pos(totalWidth * 0.6, totalHeight * 0.5),
+        scale(2),
+        solid(),
+        area()
+    ])
+
+    const juca = add([
+        "juca",
+        sprite("juca"),
+        area(),
+        pos(totalWidth * 0.85, totalHeight * 0.8),
+    ])
+
+    const virgilio = add([
+        "virgilio",
+        sprite("virgilio"),
+        area(),
+        pos(totalWidth * 0.2, totalHeight * 0.75),
+        scale(4)
+    ])
+
+    let jucaX = 0;
+    player.onCollide("cartorio", () => {
+        shake(30)
+        add([
+            "text",
+            text("Agora so preciso que o Joao Magalhaes \nfaca a medicao da mata para mim"),
+            scale(2),
+            pos(juca.pos.x / 1.5, juca.pos.y - (totalHeight * 0.1))
+        ])
+        setTimeout(() => {
+            destroyAll("text");
+            jucaX = 100;
+        }, 4000);
+    })
+
+    onUpdate(() => {
+        juca.move(jucaX, 0)
+    })
+
+    const balao = add([
+        "balao",
+        sprite("balao2"),
+        pos(totalWidth * 0.025, totalHeight * 0.05),
+        scale(4),
+        area()
+    ])
+
+    let intervalo;
+    onClick("balao", () => {
+        background.use(color(142, 142, 142))
+        destroyAll("balao");
+        intervalo = setInterval(() => {
+            let width = randi(0, totalWidth);
+            add([
+                "gota",
+                pos(width, 0),
+                sprite("gota"),
+                scale(3),
+                area(),
+                solid(),
+                body()
+            ])
+        }, 200);
+        setTimeout(() => {
+            destroyAll("cartorio");
+            cartorio = add([
+                "destrocos",
+                sprite("destrocos"),
+                pos(totalWidth * 0.6, totalHeight * 0.5),
+                scale(2),
+                area()
+            ])
+        }, 4000);
+    })
+
+    let textVirgilio = false;
+    player.onCollide("virgilio", () => {
+        if (!textVirgilio) {
+            textVirgilio = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("Virgilio"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.15)),
+                scale(2),
+                layer("3"),
+                color(255, 0, 0)
+            ])
+            add([
+                "text",
+                text("Eu tinha feito a medicao da mata, mas"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            add([
+                "text",
+                text("esses Badaros queimaram o cartorio!"),
+                pos(virgilio.pos.x / 1.5, virgilio.pos.y - (totalHeight * 0.05)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textVirgilio = false;
+            }, 5000);
+        }
+    })
+
+    onCollide("gota", "grama", (gota) => {
+        destroy(gota);
+    })
+    onCollide("gota", "cartorio", (gota) => {
+        destroy(gota);
+    })
+    onCollide("gota", "player", (gota) => {
+        destroy(gota);
+    })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            clearInterval(intervalo);
+            go("parte8")
+        }
+    })
+})
+
+scene("parte8", () => {
+    
+})
+
+go("parte8");
