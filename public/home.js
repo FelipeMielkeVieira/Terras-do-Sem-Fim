@@ -54,6 +54,12 @@ loadSprite("cartorio", "/sprites/cartorio.png");
 loadSprite("destrocos", "/sprites/destrocos.png");
 loadSprite("gota", "/sprites/gota.png");
 
+loadSprite("aleatorio1", "/sprites/aleatorio1.png");
+loadSprite("aleatorio2", "/sprites/aleatorio2.png");
+loadSprite("aleatorio3", "/sprites/aleatorio3.png");
+
+loadSprite("fogo", "/sprites/fogo.png");
+
 scene("inicio", () => {
 
     add([
@@ -2805,7 +2811,1416 @@ scene("parte7", () => {
 })
 
 scene("parte8", () => {
-    
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+
+    const aleatorio1 = add([
+        "aleatorio1",
+        sprite("aleatorio1"),
+        area(),
+        pos(totalWidth * 0.5, totalHeight * 0.8),
+    ])
+
+    const aleatorio2 = add([
+        "aleatorio2",
+        sprite("aleatorio2"),
+        area(),
+        pos(totalWidth * 0.6, totalHeight * 0.8),
+    ])
+
+    const aleatorio3 = add([
+        "aleatorio3",
+        sprite("aleatorio3"),
+        area(),
+        pos(totalWidth * 0.8, totalHeight * 0.8),
+    ])
+
+    let text1 = false;
+    let text2 = false;
+    let text3 = false;
+
+    player.onCollide("aleatorio1", () => {
+        if (!text1) {
+            text1 = true;
+            text2 = false;
+            text3 = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Fiquei sabendo que Margot esta com \nJuca Badaro agora!"),
+                pos(aleatorio1.pos.x / 1.5, aleatorio1.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                text1 = false;
+            }, 5000);
+        }
+    })
+
+    player.onCollide("aleatorio2", () => {
+        if (!text2) {
+            text1 = false;
+            text2 = true;
+            text3 = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Ester tambem deve estar com Virgilio aqui \nno palacio do Horacio"),
+                pos(aleatorio2.pos.x / 1.5, aleatorio2.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                text2 = false;
+            }, 5000);
+        }
+    })
+
+    player.onCollide("aleatorio3", () => {
+        if (!text3) {
+            text1 = false;
+            text2 = false;
+            text3 = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("Toda a cidade ja ficou sabendo disso"),
+                pos(aleatorio3.pos.x / 1.5, aleatorio3.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                text3 = false;
+            }, 5000);
+        }
+    })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            go("parte9")
+        }
+    })
 })
 
-go("parte8");
+scene("parte9", () => {
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+
+    setInterval(() => {
+        let width = randi(totalWidth * 0.3, totalWidth);
+        add([
+            "fogo",
+            sprite("fogo"),
+            lifespan(2),
+            scale(8),
+            area(),
+            solid(),
+            pos(width, totalHeight * 0.8)
+        ])
+    }, 1000);
+
+    player.onCollide("fogo", () => {
+        shake(20),
+        player.moveTo(totalWidth * 0.02, totalHeight * 0.7)
+    })
+
+    const firmo = add([
+        "firmo",
+        sprite("firmo"),
+        pos(totalWidth * 0.2, totalHeight * 0.8),
+        area(),
+        scale(4)
+    ])
+
+    let textFirmo = false;
+    player.onCollide("firmo", () => {
+        if (!textFirmo) {
+            textFirmo = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("A familia Badaro matou os Irmaos Merenda e queimaram \na minha fazenda! Isso e inaceitavel!"),
+                pos(firmo.pos.x / 1.5, firmo.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textFirmo = false;
+            }, 5000);
+        }
+    })
+
+    add([
+        "cartorio",
+        sprite("cartorio"),
+        area(),
+        pos(totalWidth * 0.65, totalHeight * 0.5),
+        layer("1"),
+        scale(2)
+    ])
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            go("parte10")
+        }
+    })
+})
+
+scene("parte10", () => {
+    //Pensar como fazer - Virgilio querendo matar Juca Badaró por insultar ele (talvez nem fazer)
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("parte11", () => {
+    //Emboscada para Juca, que não dá certo
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("parte12", () => {
+    //Horácio doente e Ester morta
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("parte13", () => {
+    //Casamentos e Juca morto (Don'Ana e João, Raimunda e Antônio)
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("parte14", () => {
+    //Intervenção do governo e família badaró fugindo (não faço ideia de como fazer)
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("parte15", () => {
+    //Virgílio e Maneca (também não sei como fazer)
+    layers([
+        "1",
+        "2",
+        "3"
+    ], "2")
+
+    const background = add([
+        "background",
+        rect(totalWidth, totalHeight),
+        pos(0, 0),
+        layer("1"),
+        color(67, 197, 245)
+    ])
+
+    //Grama 1
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.1, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 2
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.2, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 3
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.3, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 4
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.4, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 5
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.5, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 6
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.6, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 7
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.7, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 8
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.8, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 9
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(totalWidth * 0.9, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    //Grama 10
+    add([
+        "grama",
+        sprite("grama"),
+        scale(6),
+        pos(0, totalHeight * 0.9),
+        area(),
+        solid()
+    ])
+
+    const player = add([
+        "player",
+        sprite("player"),
+        pos(totalWidth * 0.02, totalHeight * 0.7),
+        area(),
+        solid(),
+        scale(3),
+        body()
+    ])
+
+    onKeyDown("left", () => {
+        player.move(-speed, 0);
+    })
+    onKeyDown("a", () => {
+        player.move(-speed, 0);
+    })
+
+    onKeyDown("right", () => {
+        player.move(speed, 0);
+    })
+    onKeyDown("d", () => {
+        player.move(speed, 0);
+    })
+
+    onKeyDown("up", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+    onKeyDown("w", () => {
+        if (player.isGrounded()) {
+            player.jump(600)
+        }
+    })
+
+    onKeyDown("down", () => {
+        player.move(0, speed);
+    })
+    onKeyDown("s", () => {
+        player.move(0, speed);
+    })
+})
+
+scene("fim", () => {
+    add([
+        text("Fim"),
+        pos(totalWidth * 0.45, totalHeight * 0.4),
+        scale(5)
+    ])
+})
+
+go("parte10");
