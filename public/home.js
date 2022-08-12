@@ -17,6 +17,7 @@ loadSprite("grama", "https://i.ibb.co/XzwXz89/New-Piskel-5.png");
 loadSprite("porto", "/sprites/porto.png");
 loadSprite("arvore", "/sprites/arvore.png")
 loadSprite("player", "/sprites/player.png");
+loadSprite("player2", "/sprites/player2.png");
 
 loadSprite("antonio", "/sprites/antonio.png");
 loadSprite("joao", "/sprites/joao.png");
@@ -225,16 +226,20 @@ scene("parte1", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -563,16 +568,20 @@ scene("parte2", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -881,16 +890,20 @@ scene("horacio1", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -1168,16 +1181,20 @@ scene("horacio2", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -1421,16 +1438,20 @@ scene("horacio3", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -1650,16 +1671,20 @@ scene("parte4", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -1987,16 +2012,20 @@ scene("parte5", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -2038,7 +2067,6 @@ scene("parte5", () => {
         sprite("maneca"),
         pos(totalWidth * 0.5, totalHeight * 0.8),
         area(),
-        scale(4)
     ])
 
     const damiao = add([
@@ -2292,16 +2320,20 @@ scene("parte6", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -2653,16 +2685,20 @@ scene("parte7", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -2933,16 +2969,20 @@ scene("parte8", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -3182,16 +3222,20 @@ scene("parte9", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -3410,16 +3454,20 @@ scene("parte10", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -3649,16 +3697,20 @@ scene("parte11", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -3770,7 +3822,7 @@ scene("parte11", () => {
 
     onUpdate(() => {
         if (player.pos.x >= totalWidth) {
-            go("parte11")
+            go("parte12")
         }
     })
 })
@@ -3903,16 +3955,20 @@ scene("parte12", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -3985,7 +4041,7 @@ scene("parte12", () => {
             add([
                 "text",
                 text("Don'Ana"),
-                pos(ana.pos.x / 1.5, ana.pos.y - (totalHeight * 0.15)),
+                pos(ana.pos.x, ana.pos.y - (totalHeight * 0.15)),
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
@@ -4012,14 +4068,14 @@ scene("parte12", () => {
             add([
                 "text",
                 text("Raimunda"),
-                pos(raimunda.pos.x / 1.5, raimunda.pos.y - (totalHeight * 0.15)),
+                pos(raimunda.pos.x, raimunda.pos.y - (totalHeight * 0.15)),
                 scale(2),
                 layer("3"),
                 color(255, 0, 0)
             ])
             add([
                 "text",
-                text("Fiquei sabendo que Juca Badaro\n foi assassinado! Horacio precisa ser morto!"),
+                text("Fiquei sabendo que Juca Badaro\n foi assassinado! Horacio \nprecisa ser morto!"),
                 pos(raimunda.pos.x, raimunda.pos.y - (totalHeight * 0.09)),
                 scale(2),
                 layer("3")
@@ -4028,6 +4084,12 @@ scene("parte12", () => {
                 destroyAll("text");
                 textRaimunda = false;
             }, 5000);
+        }
+    })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            go("parte13")
         }
     })
 })
@@ -4160,16 +4222,20 @@ scene("parte13", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -4293,8 +4359,8 @@ scene("parte14", () => {
 
     const player = add([
         "player",
-        sprite("player"),
-        pos(totalWidth * 0.1, totalHeight * 0.7),
+        sprite("player2"),
+        pos(totalWidth * 0.9, totalHeight * 0.7),
         area(),
         solid(),
         scale(3),
@@ -4303,16 +4369,20 @@ scene("parte14", () => {
 
     onKeyDown("left", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
     onKeyDown("a", () => {
         player.move(-speed, 0);
+        player.use(sprite("player2"));
     })
 
     onKeyDown("right", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
     onKeyDown("d", () => {
         player.move(speed, 0);
+        player.use(sprite("player"));
     })
 
     onKeyDown("up", () => {
@@ -4399,11 +4469,19 @@ scene("parte14", () => {
     })
 
     onUpdate(() => {
-        if (player.pos.x >= totalWidth) {
+        if (player.pos.y >= totalHeight) {
             go("fim")
         }
     })
 
+})
+
+scene("fim", () => {
+    add([
+        text("Fim"),
+        pos(totalWidth * 0.45, totalHeight * 0.4),
+        scale(5)
+    ])
 })
 
 go("inicio");
