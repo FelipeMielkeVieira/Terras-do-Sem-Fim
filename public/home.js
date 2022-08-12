@@ -59,6 +59,9 @@ loadSprite("aleatorio2", "/sprites/aleatorio2.png");
 loadSprite("aleatorio3", "/sprites/aleatorio3.png");
 
 loadSprite("fogo", "/sprites/fogo.png");
+loadSprite("palacete", "/sprites/palacete.png");
+loadSprite("homemArmado2", "/sprites/homemArmado2.png");
+loadSprite("lapide", "/sprites/lapide.png");
 
 scene("inicio", () => {
 
@@ -3044,6 +3047,14 @@ scene("parte8", () => {
         }
     })
 
+    const palacete = add([
+        "palacete",
+        sprite("palacete"),
+        scale(10),
+        pos(totalWidth * 0.1, totalHeight * 0.4),
+        layer("1")
+    ])
+
     onUpdate(() => {
         if (player.pos.x >= totalWidth) {
             go("parte9")
@@ -3200,7 +3211,7 @@ scene("parte9", () => {
         player.move(0, speed);
     })
 
-    setInterval(() => {
+    let intervalo = setInterval(() => {
         let width = randi(totalWidth * 0.3, totalWidth);
         add([
             "fogo",
@@ -3256,171 +3267,13 @@ scene("parte9", () => {
 
     onUpdate(() => {
         if (player.pos.x >= totalWidth) {
+            clearInterval(intervalo);
             go("parte10")
         }
     })
 })
 
 scene("parte10", () => {
-    //Pensar como fazer - Virgilio querendo matar Juca Badaró por insultar ele (talvez nem fazer)
-    layers([
-        "1",
-        "2",
-        "3"
-    ], "2")
-
-    const background = add([
-        "background",
-        rect(totalWidth, totalHeight),
-        pos(0, 0),
-        layer("1"),
-        color(67, 197, 245)
-    ])
-
-    //Grama 1
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.1, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 2
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.2, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 3
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.3, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 4
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.4, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 5
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.5, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 6
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.6, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 7
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.7, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 8
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.8, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 9
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.9, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 10
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(0, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    const player = add([
-        "player",
-        sprite("player"),
-        pos(totalWidth * 0.02, totalHeight * 0.7),
-        area(),
-        solid(),
-        scale(3),
-        body()
-    ])
-
-    onKeyDown("left", () => {
-        player.move(-speed, 0);
-    })
-    onKeyDown("a", () => {
-        player.move(-speed, 0);
-    })
-
-    onKeyDown("right", () => {
-        player.move(speed, 0);
-    })
-    onKeyDown("d", () => {
-        player.move(speed, 0);
-    })
-
-    onKeyDown("up", () => {
-        if (player.isGrounded()) {
-            player.jump(600)
-        }
-    })
-    onKeyDown("w", () => {
-        if (player.isGrounded()) {
-            player.jump(600)
-        }
-    })
-
-    onKeyDown("down", () => {
-        player.move(0, speed);
-    })
-    onKeyDown("s", () => {
-        player.move(0, speed);
-    })
-})
-
-scene("parte11", () => {
     //Emboscada para Juca, que não dá certo
     layers([
         "1",
@@ -3577,9 +3430,81 @@ scene("parte11", () => {
     onKeyDown("s", () => {
         player.move(0, speed);
     })
+
+    const juca = add([
+        "juca",
+        sprite("juca"),
+        pos(totalWidth * 0.15, totalHeight * 0.7),
+        area(),
+    ])
+
+    const antonio = add([
+        "antonio",
+        sprite("antonio"),
+        pos(totalWidth * 0.2, totalHeight * 0.7),
+        area(),
+        scale(4)
+    ])
+
+    const homem = add([
+        "homemArmado2",
+        sprite("homemArmado2"),
+        pos(totalWidth * 0.9, totalHeight * 0.7),
+        area(),
+        scale(-4, 4)
+    ])
+
+    let intervalo = setInterval(() => {
+        add([
+            "bala",
+            rect(10, 10),
+            pos(totalWidth * 0.8, totalHeight * 0.8),
+            move(LEFT, 100),
+            area(),
+            solid(),
+            color(0,0,0)
+        ])
+    }, 2500);
+
+    let textJuca = false;
+    player.onCollide("juca", () => {
+        if (!textJuca) {
+            textJuca = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("Essa emboscada nao ira dar certo! Tenho o antonio para \nme ajudar aqui!"),
+                pos(juca.pos.x / 1.5, juca.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textJuca = false;
+            }, 5000);
+        }
+    })
+
+    player.onCollide("bala", (bala) => {
+        player.moveTo(totalWidth * 0.02, totalHeight * 0.7)
+        shake(20);
+        destroy(bala);
+    })
+
+    antonio.onCollide("bala", (bala) => {
+        destroy(bala);
+    })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            clearInterval(intervalo);
+            go("parte11")
+        }
+    })
+    
 })
 
-scene("parte12", () => {
+scene("parte11", () => {
     //Horácio doente e Ester morta
     layers([
         "1",
@@ -3589,10 +3514,10 @@ scene("parte12", () => {
 
     const background = add([
         "background",
-        rect(totalWidth, totalHeight),
+        rect(totalWidth * 0.5, totalHeight),
         pos(0, 0),
         layer("1"),
-        color(67, 197, 245)
+        color(67, 0, 0)
     ])
 
     //Grama 1
@@ -3736,9 +3661,96 @@ scene("parte12", () => {
     onKeyDown("s", () => {
         player.move(0, speed);
     })
+
+    const chao = add([
+        "chao",
+        rect(totalWidth * 0.5, totalHeight * 0.1),
+        pos(0, totalHeight * 0.8),
+        color(120, 0, 0),
+        solid(),
+        area()
+    ])
+
+    const horacio = add([
+        "horacio",
+        sprite("horacio"),
+        pos(totalWidth * 0.25, totalHeight * 0.6),
+        scale(4),
+        area()
+    ])
+
+    const lapide1 = add([
+        "lapide",
+        sprite("lapide"),
+        pos(totalWidth * 0.6, totalHeight * 0.8),
+        scale(6),
+        area()
+    ])
+
+    const lapide2 = add([
+        "lapide2",
+        sprite("lapide"),
+        pos(totalWidth * 0.7, totalHeight * 0.8),
+        scale(6),
+        area()
+    ])
+
+    const lapide3 = add([
+        "lapide",
+        sprite("lapide"),
+        pos(totalWidth * 0.8, totalHeight * 0.8),
+        scale(6),
+        area()
+    ])
+
+    let textHoracio = false;
+    let textEster = false;
+    player.onCollide("horacio", () => {
+        if (!textHoracio) {
+            textHoracio = true;
+            textEster = false;
+            destroyAll("text")
+            add([
+                "text",
+                text("Acabei pegando febre, mas ja melhorei, porem a Ester\nnao conseguiu aguentar!"),
+                pos(horacio.pos.x / 1.5, horacio.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textHoracio = false;
+            }, 5000);
+        }
+    })
+
+    player.onCollide("lapide2", () => {
+        if (!textEster) {
+            textHoracio = false;
+            textEster = true;
+            destroyAll("text")
+            add([
+                "text",
+                text("Aqui jaz Ester"),
+                pos(lapide2.pos.x, lapide2.pos.y - (totalHeight * 0.09)),
+                scale(2),
+                layer("3")
+            ])
+            setTimeout(() => {
+                destroyAll("text");
+                textEster = false;
+            }, 5000);
+        }
+    })
+
+    onUpdate(() => {
+        if (player.pos.x >= totalWidth) {
+            go("parte11")
+        }
+    })
 })
 
-scene("parte13", () => {
+scene("parte12", () => {
     //Casamentos e Juca morto (Don'Ana e João, Raimunda e Antônio)
     layers([
         "1",
@@ -3897,7 +3909,7 @@ scene("parte13", () => {
     })
 })
 
-scene("parte14", () => {
+scene("parte13", () => {
     //Intervenção do governo e família badaró fugindo (não faço ideia de como fazer)
     layers([
         "1",
@@ -4056,7 +4068,7 @@ scene("parte14", () => {
     })
 })
 
-scene("parte15", () => {
+scene("parte14", () => {
     //Virgílio e Maneca (também não sei como fazer)
     layers([
         "1",
@@ -4223,4 +4235,4 @@ scene("fim", () => {
     ])
 })
 
-go("parte10");
+go("parte12");
