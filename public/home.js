@@ -64,6 +64,7 @@ loadSprite("palacete", "/sprites/palacete.png");
 loadSprite("homemArmado2", "/sprites/homemArmado2.png");
 loadSprite("lapide", "/sprites/lapide.png");
 loadSprite("arco", "/sprites/arco.png");
+loadSprite("play", "/sprites/play.png")
 
 scene("inicio", () => {
 
@@ -4095,165 +4096,80 @@ scene("parte12", () => {
 })
 
 scene("parte13", () => {
-    //Intervenção do governo e família badaró fugindo (não faço ideia de como fazer)
     layers([
         "1",
         "2",
         "3"
     ], "2")
 
-    const background = add([
-        "background",
-        rect(totalWidth, totalHeight),
-        pos(0, 0),
-        layer("1"),
-        color(67, 197, 245)
-    ])
-
-    //Grama 1
     add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.1, totalHeight * 0.9),
-        area(),
-        solid()
+        "legendaQuadro",
+        rect(totalWidth, totalHeight * 0.2),
+        pos(0, totalHeight * 0.8),
     ])
 
-    //Grama 2
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.2, totalHeight * 0.9),
-        area(),
-        solid()
+    const legenda = add([
+        "legenda",
+        pos(totalWidth * 0.1, totalHeight * 0.88),
+        text("O governo federal interviu, desse jeito o governador renunciou \ne a oposicao tomou o poder"),
+        scale(2)
     ])
 
-    //Grama 3
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.3, totalHeight * 0.9),
+    const play1 = add([
+        "play1",
+        sprite("play"),
+        scale(4),
+        pos(totalWidth * 0.07, totalHeight * 0.3),
         area(),
-        solid()
+        layer("1")
     ])
 
-    //Grama 4
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.4, totalHeight * 0.9),
+    const play2 = add([
+        "play2",
+        sprite("play"),
+        scale(4),
+        pos(totalWidth * 0.25, totalHeight * 0.3),
         area(),
-        solid()
+        layer("1")
     ])
 
-    //Grama 5
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.5, totalHeight * 0.9),
+    const play3 = add([
+        "play3",
+        sprite("play"),
+        scale(4),
+        pos(totalWidth * 0.43, totalHeight * 0.3),
         area(),
-        solid()
+        layer("1")
     ])
 
-    //Grama 6
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.6, totalHeight * 0.9),
+    const sinho = add([
+        "sinho",
+        sprite("sinho"),
+        scale(4),
+        pos(totalWidth * 0.56, totalHeight * 0.2),
         area(),
-        solid()
+        layer("1")
     ])
 
-    //Grama 7
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.7, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 8
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.8, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 9
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(totalWidth * 0.9, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    //Grama 10
-    add([
-        "grama",
-        sprite("grama"),
-        scale(6),
-        pos(0, totalHeight * 0.9),
-        area(),
-        solid()
-    ])
-
-    const player = add([
-        "player",
-        sprite("player"),
-        pos(totalWidth * 0.02, totalHeight * 0.7),
-        area(),
-        solid(),
-        scale(3),
-        body()
-    ])
-
-    onKeyDown("left", () => {
-        player.move(-speed, 0);
-        player.use(sprite("player2"));
-    })
-    onKeyDown("a", () => {
-        player.move(-speed, 0);
-        player.use(sprite("player2"));
+    onClick("play1", () => {
+        legenda.text = "Interventor demitiu o prefeito e nomeou Dr. Jesse para o cargo"
     })
 
-    onKeyDown("right", () => {
-        player.move(speed, 0);
-        player.use(sprite("player"));
-    })
-    onKeyDown("d", () => {
-        player.move(speed, 0);
-        player.use(sprite("player"));
+    onClick("play2", () => {
+        legenda.text = "Sinho Badaro se tornou a oposicao e Horacio imaginava \nVirgilio como deputado federal"
     })
 
-    onKeyDown("up", () => {
-        if (player.isGrounded()) {
-            player.jump(600)
-        }
-    })
-    onKeyDown("w", () => {
-        if (player.isGrounded()) {
-            player.jump(600)
-        }
+    onClick("play3", () => {
+        legenda.text = "O cerco da casa Grande dos Badaro pelos homens de Horacio pos fim \nna luta pela mata."
     })
 
-    onKeyDown("down", () => {
-        player.move(0, speed);
+    onClick("sinho", () => {
+        legenda.text = "Quando Sinho Badaro caiu, Don'Ana o mandou para Ilheus. \nAlem disso, Capitao Magalhaes fez com que Olga e Raimunda fossem junto. \nTerminando com um incendio na Casa Grande."
     })
-    onKeyDown("s", () => {
-        player.move(0, speed);
+
+
+    onKeyPress("escape", () => {
+        go("parte14")
     })
 })
 
