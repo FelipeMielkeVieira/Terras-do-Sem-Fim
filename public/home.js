@@ -4313,7 +4313,7 @@ scene("parte14", () => {
     const virgilio = add([
         "virgilio",
         sprite("virgilio"),
-        pos(totalWidth * 0.5, totalHeight * 0.75),
+        pos(totalWidth * 0.4, totalHeight * 0.75),
         area(),
         scale(4)
     ])
@@ -4321,7 +4321,7 @@ scene("parte14", () => {
     const maneca = add([
         "maneca",
         sprite("maneca"),
-        pos(totalWidth * 0.4, totalHeight * 0.75),
+        pos(totalWidth * 0.5, totalHeight * 0.75),
         area(),
         scale(1)
     ])
@@ -4391,4 +4391,4 @@ scene("fim", () => {
     ])
 })
 
-go("parte12");
+go("parte14");
