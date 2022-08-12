@@ -4054,10 +4054,6 @@ scene("parte12", () => {
                 scale(2),
                 layer("3")
             ])
-            setTimeout(() => {
-                destroyAll("text");
-                textAna = false;
-            }, 5000);
         }
     })
 
@@ -4081,10 +4077,6 @@ scene("parte12", () => {
                 scale(2),
                 layer("3")
             ])
-            setTimeout(() => {
-                destroyAll("text");
-                textRaimunda = false;
-            }, 5000);
         }
     })
 
@@ -4166,7 +4158,6 @@ scene("parte13", () => {
     onClick("sinho", () => {
         legenda.text = "Quando Sinho Badaro caiu, Don'Ana o mandou para Ilheus. \nAlem disso, Capitao Magalhaes fez com que Olga e Raimunda fossem junto. \nTerminando com um incendio na Casa Grande."
     })
-
 
     onKeyPress("escape", () => {
         go("parte14")
@@ -4400,4 +4391,4 @@ scene("fim", () => {
     ])
 })
 
-go("inicio");
+go("parte12");
