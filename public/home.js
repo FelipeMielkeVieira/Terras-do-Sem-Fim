@@ -587,12 +587,12 @@ scene("parte2", () => {
 
     onKeyDown("up", () => {
         if (player.isGrounded()) {
-            player.jump(600)
+            player.jump(800)
         }
     })
     onKeyDown("w", () => {
         if (player.isGrounded()) {
-            player.jump(600)
+            player.jump(800)
         }
     })
 
