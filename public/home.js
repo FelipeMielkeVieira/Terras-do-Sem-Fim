@@ -4391,4 +4391,4 @@ scene("fim", () => {
     ])
 })
 
-go("parte14");
+go("inicio");
