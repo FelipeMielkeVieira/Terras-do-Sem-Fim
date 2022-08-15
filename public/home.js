@@ -1158,7 +1158,8 @@ scene("horacio2", () => {
         sprite("igreja"),
         scale(12),
         area(),
-        pos(totalWidth * 0.6, totalHeight * 0.5)
+        pos(totalWidth * 0.6, totalHeight * 0.4),
+        body()
     ])
 
     //Capela
@@ -1167,7 +1168,8 @@ scene("horacio2", () => {
         sprite("capela"),
         scale(8),
         area(),
-        pos(totalWidth * 0.3, totalHeight * 0.6)
+        pos(totalWidth * 0.3, totalHeight * 0.5),
+        body()
     ])
 
     const player = add([
@@ -1711,14 +1713,16 @@ scene("parte4", () => {
         sprite("horacio"),
         pos(totalWidth * 0.2, totalHeight * 0.8),
         area(),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     const maneca = add([
         "maneca",
         sprite("maneca"),
         pos(totalWidth * 0.3, totalHeight * 0.8),
-        area()
+        area(),
+        body()
     ])
 
     const virgilio = add([
@@ -1726,21 +1730,24 @@ scene("parte4", () => {
         sprite("virgilio"),
         pos(totalWidth * 0.6, totalHeight * 0.8),
         area(),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     add([
         "cadeira",
         sprite("cadeira"),
         pos(totalWidth * 0.4, totalHeight * 0.8),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     add([
         "mesa",
         sprite("mesa"),
         pos(totalWidth * 0.475, totalHeight * 0.8),
-        scale(6)
+        scale(6),
+        body()
     ])
 
     const piano = add([
@@ -1749,6 +1756,7 @@ scene("parte4", () => {
         pos(totalWidth * 0.8, totalHeight * 0.75),
         scale(4),
         area(),
+        body()
     ])
 
     loop(1, () => {
@@ -2052,7 +2060,8 @@ scene("parte5", () => {
         sprite("horacio"),
         pos(totalWidth * 0.2, totalHeight * 0.8),
         area(),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     const firmo = add([
@@ -2060,7 +2069,8 @@ scene("parte5", () => {
         sprite("firmo"),
         pos(totalWidth * 0.3, totalHeight * 0.8),
         area(),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     const maneca = add([
@@ -2068,6 +2078,7 @@ scene("parte5", () => {
         sprite("maneca"),
         pos(totalWidth * 0.5, totalHeight * 0.8),
         area(),
+        body()
     ])
 
     const damiao = add([
@@ -2075,7 +2086,8 @@ scene("parte5", () => {
         sprite("damiao"),
         pos(totalWidth * 0.6, totalHeight * 0.8),
         area(),
-        scale(4)
+        scale(4),
+        body()
     ])
 
     let textHoracio = false;
