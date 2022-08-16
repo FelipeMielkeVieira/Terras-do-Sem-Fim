@@ -2370,7 +2370,6 @@ scene("parte6", () => {
         pos(fazenda.pos.x * 1.25, fazenda.pos.y * 2),
         area(),
         scale(2),
-        layer("1")
     ])
 
     const antonio = add([
@@ -2792,7 +2791,7 @@ scene("parte7", () => {
             cartorio = add([
                 "destrocos",
                 sprite("destrocos"),
-                pos(totalWidth * 0.6, totalHeight * 0.5),
+                pos(totalWidth * 0.6, totalHeight - (128 * 2) - (6 * 12)),
                 scale(2),
                 area()
             ])
@@ -3266,7 +3265,7 @@ scene("parte9", () => {
             scale(8),
             area(),
             solid(),
-            pos(width, totalHeight * 0.8)
+            pos(width, totalHeight - (8 * 8) - (12 * 6))
         ])
     }, 1000);
 
@@ -3314,7 +3313,7 @@ scene("parte9", () => {
         "cartorio",
         sprite("cartorio"),
         area(),
-        pos(totalWidth * 0.65, totalHeight * 0.5),
+        pos(totalWidth * 0.65, totalHeight - (128 * 2) - (12 * 6)),
         layer("1"),
         scale(2)
     ])
@@ -3492,14 +3491,14 @@ scene("parte10", () => {
     const juca = add([
         "juca",
         sprite("juca"),
-        pos(totalWidth * 0.15, totalHeight * 0.7),
+        pos(totalWidth * 0.15, totalHeight - 128 - (12 * 6)),
         area(),
     ])
 
     const antonio = add([
         "antonio",
         sprite("antonio"),
-        pos(totalWidth * 0.2, totalHeight * 0.7),
+        pos(totalWidth * 0.2, totalHeight - (32 * 4) - (12 * 6)),
         area(),
         scale(4)
     ])
@@ -3507,7 +3506,7 @@ scene("parte10", () => {
     const homem = add([
         "homemArmado2",
         sprite("homemArmado2"),
-        pos(totalWidth * 0.9, totalHeight * 0.7),
+        pos(totalWidth * 0.9, totalHeight - (32 * 4) - (12 * 6)),
         area(),
         scale(-4, 4)
     ])
@@ -3516,7 +3515,7 @@ scene("parte10", () => {
         add([
             "bala",
             rect(10, 10),
-            pos(totalWidth * 0.8, totalHeight * 0.8),
+            pos(totalWidth * 0.8, totalHeight - (32 * 6) - 62),
             move(LEFT, 100),
             area(),
             solid(),
@@ -3744,7 +3743,7 @@ scene("parte11", () => {
     const horacio = add([
         "horacio",
         sprite("horacio"),
-        pos(totalWidth * 0.25, totalHeight * 0.6),
+        pos(totalWidth * 0.25, totalHeight - (32 * 4) - (6 * 12) - (totalHeight * 0.1)),
         scale(4),
         area()
     ])
@@ -3752,7 +3751,7 @@ scene("parte11", () => {
     const lapide1 = add([
         "lapide",
         sprite("lapide"),
-        pos(totalWidth * 0.6, totalHeight * 0.8),
+        pos(totalWidth * 0.6, totalHeight - (12 * 6) - (12 * 6)),
         scale(6),
         area()
     ])
@@ -3760,7 +3759,7 @@ scene("parte11", () => {
     const lapide2 = add([
         "lapide2",
         sprite("lapide"),
-        pos(totalWidth * 0.7, totalHeight * 0.8),
+        pos(totalWidth * 0.7, totalHeight - (12 * 6) - (12 * 6)),
         scale(6),
         area()
     ])
@@ -3768,7 +3767,7 @@ scene("parte11", () => {
     const lapide3 = add([
         "lapide",
         sprite("lapide"),
-        pos(totalWidth * 0.8, totalHeight * 0.8),
+        pos(totalWidth * 0.8, totalHeight - (12 * 6) - (12 * 6)),
         scale(6),
         area()
     ])
@@ -3993,42 +3992,42 @@ scene("parte12", () => {
     const ana = add([
         "ana",
         sprite("ana"),
-        pos(totalWidth * 0.25, totalHeight * 0.7),
+        pos(totalWidth * 0.25, totalHeight - 128 - (12 * 6)),
         area()
     ])
 
     const joao = add([
         "joao",
         sprite("joao"),
-        pos(totalWidth * 0.4, totalHeight * 0.7),
+        pos(totalWidth * 0.4, totalHeight - (4 * 32) - (12 * 6)),
         scale(-4, 4)
     ])
 
     const arco1 = add([
         "arco",
         sprite("arco"),
-        pos(totalWidth * 0.225, totalHeight * 0.5),
+        pos(totalWidth * 0.225, totalHeight - (128 * 2) - (12 * 6)),
         scale(2)
     ])
 
     const raimunda = add([
         "raimunda",
         sprite("raimunda"),
-        pos(totalWidth * 0.6, totalHeight * 0.7),
+        pos(totalWidth * 0.6, totalHeight - 128 - (12 * 6)),
         area()
     ])
 
     const antonio = add([
         "antonio",
         sprite("antonio"),
-        pos(totalWidth * 0.775, totalHeight * 0.7),
+        pos(totalWidth * 0.775, totalHeight - (32 * 4) - (12 * 6)),
         scale(-4, 4)
     ])
 
     const arco2 = add([
         "arco",
         sprite("arco"),
-        pos(totalWidth * 0.6, totalHeight * 0.5),
+        pos(totalWidth * 0.6, totalHeight - (128 * 2) - (12 * 6)),
         scale(2)
     ])
 
