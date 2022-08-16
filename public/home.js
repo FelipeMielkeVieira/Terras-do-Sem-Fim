@@ -1159,7 +1159,8 @@ scene("horacio2", () => {
         scale(12),
         area(),
         pos(totalWidth * 0.6, totalHeight * 0.4),
-        body()
+        body(),
+        layer("1")
     ])
 
     //Capela
@@ -1169,7 +1170,8 @@ scene("horacio2", () => {
         scale(8),
         area(),
         pos(totalWidth * 0.3, totalHeight * 0.5),
-        body()
+        body(),
+        layer("1")
     ])
 
     const player = add([
@@ -1265,7 +1267,6 @@ scene("horacio2", () => {
             layer("1"),
             sprite("caxixe"),
             pos(totalWidth * 0.735, totalHeight * 0.7),
-            area(),
             scale(1.5)
         ])
     }
