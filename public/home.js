@@ -1711,8 +1711,7 @@ scene("parte4", () => {
         sprite("horacio"),
         pos(totalWidth * 0.2, totalHeight * 0.8),
         area(),
-        scale(4),
-        body()
+        scale(4)
     ])
 
     const maneca = add([
@@ -1720,7 +1719,6 @@ scene("parte4", () => {
         sprite("maneca"),
         pos(totalWidth * 0.3, totalHeight * 0.8),
         area(),
-        body()
     ])
 
     const virgilio = add([
@@ -1729,7 +1727,6 @@ scene("parte4", () => {
         pos(totalWidth * 0.6, totalHeight * 0.8),
         area(),
         scale(4),
-        body()
     ])
 
     add([
@@ -1737,7 +1734,6 @@ scene("parte4", () => {
         sprite("cadeira"),
         pos(totalWidth * 0.4, totalHeight * 0.8),
         scale(4),
-        body()
     ])
 
     add([
@@ -1745,7 +1741,6 @@ scene("parte4", () => {
         sprite("mesa"),
         pos(totalWidth * 0.475, totalHeight * 0.8),
         scale(6),
-        body()
     ])
 
     const piano = add([
@@ -1754,7 +1749,6 @@ scene("parte4", () => {
         pos(totalWidth * 0.8, totalHeight * 0.75),
         scale(4),
         area(),
-        body()
     ])
 
     loop(1, () => {
@@ -2059,7 +2053,6 @@ scene("parte5", () => {
         pos(totalWidth * 0.2, totalHeight * 0.8),
         area(),
         scale(4),
-        body()
     ])
 
     const firmo = add([
@@ -2068,7 +2061,6 @@ scene("parte5", () => {
         pos(totalWidth * 0.3, totalHeight * 0.8),
         area(),
         scale(4),
-        body()
     ])
 
     const maneca = add([
@@ -2076,7 +2068,6 @@ scene("parte5", () => {
         sprite("maneca"),
         pos(totalWidth * 0.5, totalHeight * 0.8),
         area(),
-        body()
     ])
 
     const damiao = add([
@@ -2085,7 +2076,6 @@ scene("parte5", () => {
         pos(totalWidth * 0.6, totalHeight * 0.8),
         area(),
         scale(4),
-        body()
     ])
 
     let textHoracio = false;
@@ -2368,7 +2358,7 @@ scene("parte6", () => {
     const fazenda = add([
         "fazenda",
         sprite("fazenda"),
-        pos(totalWidth * 0.6, totalHeight * 0.4),
+        pos(totalWidth * 0.6, totalHeight - (128 * 2.5) - (12 * 6)),
         scale(2.5),
         area(),
         layer("1")
@@ -2733,7 +2723,7 @@ scene("parte7", () => {
     let cartorio = add([
         "cartorio",
         sprite("cartorio"),
-        pos(totalWidth * 0.6, totalHeight * 0.5),
+        pos(totalWidth * 0.6, totalHeight - (128 * 2) - (6 * 12)),
         scale(2),
         solid(),
         area()
@@ -3103,7 +3093,7 @@ scene("parte8", () => {
         "palacete",
         sprite("palacete"),
         scale(10),
-        pos(totalWidth * 0.1, totalHeight * 0.4),
+        pos(totalWidth * 0.1, totalHeight - (32 * 10) - (6 * 12)),
         layer("1")
     ])
 
