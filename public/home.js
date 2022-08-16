@@ -2367,7 +2367,7 @@ scene("parte6", () => {
     const quadro = add([
         "quadro",
         sprite("quadro"),
-        pos(fazenda.pos.x * 1.25, fazenda.pos.y * 2),
+        pos(fazenda.pos.x * 1.25, totalHeight - (12 * 6) - 20),
         area(),
         scale(2),
     ])
@@ -3515,7 +3515,7 @@ scene("parte10", () => {
         add([
             "bala",
             rect(10, 10),
-            pos(totalWidth * 0.8, totalHeight - (32 * 6) - 62),
+            pos(totalWidth * 0.8, totalHeight - (32 * 6) - 24),
             move(LEFT, 100),
             area(),
             solid(),
