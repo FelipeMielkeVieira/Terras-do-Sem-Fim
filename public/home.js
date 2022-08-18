@@ -2370,7 +2370,7 @@ scene("parte6", () => {
     const quadro = add([
         "quadro",
         sprite("quadro"),
-        pos(fazenda.pos.x * 1.25, (totalHeight - (128 * 2.5) - (12 * 6) - 10) * 0.6),
+        pos(fazenda.pos.x * 1.25, (totalHeight - (128 * 2.5) - (12 * 6) - 10) * 0.6 + totalHeight - (128 * 2.5) - (12 * 6) - 10),
         area(),
         scale(2),
     ])
