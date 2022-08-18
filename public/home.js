@@ -3351,12 +3351,14 @@ scene("parte10", () => {
         color(67, 197, 245)
     ])
 
+    const gramaPos = totalHeight - 10 - (6 * 12);
+
     //Grama 1
     add([
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.1, totalHeight * 0.9),
+        pos(totalWidth * 0.1, gramaPos),
         area(),
         solid()
     ])
@@ -3366,7 +3368,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.2, totalHeight * 0.9),
+        pos(totalWidth * 0.2, gramaPos),
         area(),
         solid()
     ])
@@ -3376,7 +3378,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.3, totalHeight * 0.9),
+        pos(totalWidth * 0.3, gramaPos),
         area(),
         solid()
     ])
@@ -3386,7 +3388,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.4, totalHeight * 0.9),
+        pos(totalWidth * 0.4, gramaPos),
         area(),
         solid()
     ])
@@ -3396,7 +3398,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.5, totalHeight * 0.9),
+        pos(totalWidth * 0.5, gramaPos),
         area(),
         solid()
     ])
@@ -3406,7 +3408,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.6, totalHeight * 0.9),
+        pos(totalWidth * 0.6, gramaPos),
         area(),
         solid()
     ])
@@ -3416,7 +3418,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.7, totalHeight * 0.9),
+        pos(totalWidth * 0.7, gramaPos),
         area(),
         solid()
     ])
@@ -3426,7 +3428,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.8, totalHeight * 0.9),
+        pos(totalWidth * 0.8, gramaPos),
         area(),
         solid()
     ])
@@ -3436,7 +3438,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(totalWidth * 0.9, totalHeight * 0.9),
+        pos(totalWidth * 0.9, gramaPos),
         area(),
         solid()
     ])
@@ -3446,7 +3448,7 @@ scene("parte10", () => {
         "grama",
         sprite("grama"),
         scale(6),
-        pos(0, totalHeight * 0.9),
+        pos(0, gramaPos),
         area(),
         solid()
     ])
@@ -3500,14 +3502,14 @@ scene("parte10", () => {
     const juca = add([
         "juca",
         sprite("juca"),
-        pos(totalWidth * 0.15, totalHeight - 128 - (12 * 6)),
+        pos(totalWidth * 0.15, totalHeight - 128 - (12 * 6) - 10),
         area(),
     ])
 
     const antonio = add([
         "antonio",
         sprite("antonio"),
-        pos(totalWidth * 0.2, totalHeight - (32 * 4) - (12 * 6)),
+        pos(totalWidth * 0.2, totalHeight - (32 * 4) - (12 * 6) - 10),
         area(),
         scale(4)
     ])
@@ -3515,7 +3517,7 @@ scene("parte10", () => {
     const homem = add([
         "homemArmado2",
         sprite("homemArmado2"),
-        pos(totalWidth * 0.9, totalHeight - (32 * 4) - (12 * 6)),
+        pos(totalWidth * 0.9, totalHeight - (32 * 4) - (12 * 6) - 10),
         area(),
         scale(-4, 4)
     ])
@@ -3524,7 +3526,7 @@ scene("parte10", () => {
         add([
             "bala",
             rect(10, 10),
-            pos(totalWidth * 0.8, totalHeight - (32 * 6) - 24),
+            pos(totalWidth * 0.8, totalHeight * 0.7 + 45),
             move(LEFT, 100),
             area(),
             solid(),
