@@ -2441,14 +2441,14 @@ scene("parte6", () => {
             ])
             add([
                 "text",
-                text("Salvei a vida dele, entao"),
+                text("Ele salvou a minha vida, entao"),
                 pos(juca.pos.x / 1.5, juca.pos.y - (totalHeight * 0.09)),
                 scale(2),
                 layer("3")
             ])
             add([
                 "text",
-                text("ele me deve tudo isso!"),
+                text("irei retribuir!"),
                 pos(juca.pos.x / 1.5, juca.pos.y - (totalHeight * 0.05)),
                 scale(2),
                 layer("3")
