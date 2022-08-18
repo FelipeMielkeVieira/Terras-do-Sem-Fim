@@ -2753,7 +2753,7 @@ scene("parte7", () => {
         shake(30)
         add([
             "text",
-            text("Agora so preciso que o Joao Magalhaes \nfaca a medicao da mata para mim"),
+            text("Agora so preciso que o \nJoao Magalhaes faca a \nmedicao da mata para mim"),
             scale(2),
             pos(juca.pos.x / 1.5, juca.pos.y - (totalHeight * 0.1))
         ])
