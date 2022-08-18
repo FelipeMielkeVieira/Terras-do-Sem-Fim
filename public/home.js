@@ -1159,7 +1159,7 @@ scene("horacio2", () => {
         sprite("igreja"),
         scale(12),
         area(),
-        pos(totalWidth * 0.6, totalHeight - (12 * 32) - (6 * 12)),
+        pos(totalWidth * 0.6, totalHeight - (12 * 32) - (6 * 12) - 10),
     ])
 
     //Capela
@@ -1168,7 +1168,7 @@ scene("horacio2", () => {
         sprite("capela"),
         scale(8),
         area(),
-        pos(totalWidth * 0.3, totalHeight - (8 * 32) - (6 * 12)),
+        pos(totalWidth * 0.3, totalHeight - (8 * 32) - (6 * 12) - 10),
     ])
 
     const player = add([
